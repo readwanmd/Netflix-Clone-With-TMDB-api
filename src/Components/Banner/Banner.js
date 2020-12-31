@@ -71,9 +71,7 @@ const Banner = () => {
 			</div>
 
 			<div className="banner--fadeBottom" />
-			{trailerUrl && (
-				<YouTube style={{ zIndex: '1' }} videoId={trailerUrl} opts={opts} />
-			)}
+			{trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
 		</header>
 	);
 };
