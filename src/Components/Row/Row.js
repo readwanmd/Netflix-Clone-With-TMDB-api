@@ -11,7 +11,6 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
 		async function fetchData() {
 			const request = await axios.get(fetchUrl);
 			setMovies(request.data.results);
-			console.log(request.data.results);
 			return request;
 		}
 		fetchData();
@@ -24,9 +23,9 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
 				{movies.map((movie) => (
 					<img
 						key={movie.id}
-						className="row__poster"
+						className={`row__poster ${isLargeRow && 'row__posterLarge'}`}
 						src={`${base_url}${
-							~isLargeRow ? movie.poster_path : movie.backdrop_path
+							isLargeRow ? movie.poster_path : movie.backdrop_path
 						}`}
 						alt={movie.name}
 					/>
